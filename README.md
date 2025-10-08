@@ -188,6 +188,25 @@ pip install git+https://github.com/TencentARC/GFPGAN.git@master
 
 **Run:** If you don't have a GPU, you can run Deep-Live-Cam using `python run.py`. Note that initial execution will download models (~300MB).
 
+### Building a macOS App Bundle
+
+If you prefer to distribute Deep Live Cam as a double-clickable macOS application, you can build a `.app` bundle using [`py2app`](https://py2app.readthedocs.io/).
+
+1. Make sure the required model files have already been downloaded into the `models` directory.
+2. Install `py2app` inside your virtual environment:
+
+   ```bash
+   pip install py2app
+   ```
+
+3. Run the build script from the project root:
+
+   ```bash
+   python3 setup_mac.py py2app
+   ```
+
+The generated application will be located at `dist/Deep Live Cam.app`. You can move this bundle into `/Applications` or share it with other macOS users. The app will include the `media`, `models`, and `locales` folders so it works offline after packaging.
+
 ### GPU Acceleration
 
 **CUDA Execution Provider (Nvidia)**
