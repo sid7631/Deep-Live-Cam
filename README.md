@@ -190,16 +190,22 @@ pip install git+https://github.com/TencentARC/GFPGAN.git@master
 
 ### Building a macOS App Bundle
 
-If you prefer to distribute Deep Live Cam as a double-clickable macOS application, you can build a `.app` bundle using [`py2app`](https://py2app.readthedocs.io/). The new guide in [`docs/building-macos-app.md`](docs/building-macos-app.md) covers the full workflow—installing Homebrew Python, preparing the virtual environment, downloading the required models, and signing the bundle for distribution.
+If you prefer to distribute Deep Live Cam as a double-clickable macOS application, you can build a `.app` bundle using [`py2app`](https://py2app.readthedocs.io/).
 
-For a quick reminder of the core commands:
+1. Make sure the required model files have already been downloaded into the `models` directory.
+2. Install `py2app` inside your virtual environment:
 
-```bash
-pip install py2app
-python setup_mac.py py2app
-```
+   ```bash
+   pip install py2app
+   ```
 
-The generated application will be located at `dist/Deep Live Cam.app`. You can move this bundle into `/Applications` or share it with other macOS users. The app includes the `media`, `models`, and `locales` folders so it works offline after packaging.
+3. Run the build script from the project root:
+
+   ```bash
+   python3 setup_mac.py py2app
+   ```
+
+The generated application will be located at `dist/Deep Live Cam.app`. You can move this bundle into `/Applications` or share it with other macOS users. The app will include the `media`, `models`, and `locales` folders so it works offline after packaging.
 
 ### GPU Acceleration
 
